@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review Cine - Filmes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<header>
+  <button onclick="window.location.href='seriePage.html'">Séries</button>
+
+  <button onclick="window.location.href='filmePage.html'">Filmes</button>
+
+  <button onclick="window.location.href='actorsPage.html'">Personagens</button>
+</header>
+
+  <div class="container">
+    <aside>
+        <a href="#" id="filtro-id-btn">Filtro por ID</a>
+        <a href="#" id="filtro-avaliacao-btn">Filtro por avaliação</a>
+        <a href="#" id="filtro-lancamento-btn">Filtro por Lançamento</a>
+        <a href="#" id="filtro-linguagem-btn">Filtro por linguagem</a>
+        <a href="#" id="filtro-nome-btn">Filtro por nome</a>
+        <a href="#" id="filtro-popularidade-btn">Filtro por Popularidade</a>
+        <a href="#" id="filtro-keyword-btn">Filtro por palavra chave</a>
+    </aside>
+
+    <main id="main-content">
+      <p>Carregando filmes mais populares...</p>
+    </main>
+  </div>
+
+  <footer>Desenvolvido por Kayky Flávio Juvenal</footer>
+
+  <div id="language-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Selecione uma Linguagem</h2>
+      <div id="language-list">
+        <p>Carregando linguagens...</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="filmePage.js" defer></script>
+
+</body>
+</html>

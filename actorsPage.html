@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ReviewCine - Personagens</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <button onclick="window.location.href='seriePage.html'">Séries</button>
+    <button onclick="window.location.href='filmePage.html'">Filmes</button>
+    <button onclick="window.location.href='actorsPage.html'">Personagens</button>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar"> <button id="filtro-id-ator-btn">Filtro por ID</button>
+      <button id="filtro-nome-ator-btn">Filtro por nome</button>
+      <button id="filtro-keyword-ator-btn">Filtro por palavra chave</button>
+      <button id="filtro-popularidade-ator-btn">Filtro por Popularidade</button>
+      <button id="filtro-personagem-btn">Filtro por Personagem</button>
+      <button id="filtro-departamento-btn">Filtro por Departamento</button>
+      <button id="filtro-genero-btn">Filtro por genero</button>
+    </aside>
+
+    <main class="content"> <div class="grid" id="actor-grid">
+        <p>Carregando pessoas mais populares...</p>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    Desenvolvido por Kayky Flávio Juvenal
+  </footer>
+<div id="gender-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h2>Selecione o Gênero</h2>
+    <div id="gender-list"></div>
+  </div>
+</div>
+  </div>
+  <script type="module" src="actorsPage.js" defer></script>
+</body>
+</html>

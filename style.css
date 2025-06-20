@@ -1,0 +1,373 @@
+/* ============================================= */
+/* --- RESET BÁSICO E ESTILOS GLOBAIS --- */
+/* ============================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #3a3a3a; /* Cor de fundo principal unificada */
+  color: #f0f0f0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ============================================= */
+/* --- CABEÇALHO E RODAPÉ --- */
+/* ============================================= */
+header, footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1c1c1c;
+  padding: 1rem;
+  gap: 2rem;
+  border-bottom: 2px solid #555;
+  color: white;
+  font-weight: bold;
+}
+
+footer {
+    border-bottom: none;
+    border-top: 2px solid #555;
+}
+
+header button {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 0.7rem 2rem;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+header button:hover {
+  background-color: #777;
+  transform: translateY(-2px);
+}
+
+
+/* ============================================= */
+/* --- LAYOUT PRINCIPAL (CONTAINER, ASIDE, MAIN) --- */
+/* ============================================= */
+.container {
+  display: flex;
+  flex: 1; /* Ocupa todo o espaço vertical disponível */
+}
+
+aside {
+  width: 240px;
+  background-color: #2e2e2e;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex-shrink: 0;
+  border-right: 2px solid #555;
+}
+
+aside a, .sidebar button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #555;
+  color: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-align: left;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+aside a:hover, .sidebar button:hover {
+  background-color: #777;
+}
+
+.sidebar button.disabled-btn {
+  background-color: #3e3e3e;
+  color: #888;
+  cursor: not-allowed;
+}
+
+main, .content {
+  flex: 1; /* Ocupa todo o espaço restante */
+  padding: 2rem;
+  background-color: #444;
+  overflow-y: auto;
+}
+
+.topo-pessoa {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.col-esq-pessoa {
+    flex: 0 0 300px;
+    min-width: 280px;
+}
+
+.col-dir-pessoa {
+    flex: 1 1 500px;
+}
+
+.titulo-pessoa {
+    font-weight: bold;
+    font-size: 1.8rem;
+    padding: 0.5rem;
+    background-color: #2e2e2e;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.perfil-img-container {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 4px solid #555;
+}
+
+.perfil-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.biografia {
+    background-color: #555;
+    padding: 1.5rem;
+    border-radius: 10px;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.galeria {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.obra-card {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-color: #2e2e2e;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.obra-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.obra-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ============================================= */
+/* --- GRADE DE CONTEÚDO (PARA SÉRIES, FILMES E ATORES) --- */
+/* ============================================= */
+#main-content, #actor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  align-content: flex-start;
+}
+
+
+/* ============================================= */
+/* --- ESTILOS DOS CARDS (SÉRIES/FILMES) --- */
+/* ============================================= */
+.poster-link {
+  text-decoration: none; 
+  color: white;
+  display: block; 
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.poster-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card {
+  background-color: #555;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.title {
+  font-weight: bold;
+  padding: 0.8rem 0.5rem;
+  background-color: #3e3e3e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.poster {
+  width: 100%; 
+  aspect-ratio: 2 / 3; 
+  background-color: #222;
+}
+
+.poster img, .actor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.rating {
+  background-color: black;
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin: 0.5rem auto;
+  position: relative;
+  top: -1.75rem; 
+  border: 3px solid #555;
+}
+
+.personagem-info p strong, 
+.personagem-extra-info p strong {
+  margin-right: 0.5em;
+    text-decoration: none;
+    color: #f0f0f0;
+}
+
+.clickable-image {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.clickable-image:hover {
+  transform: scale(1.1);
+}
+/* ============================================= */
+/* --- ESTILOS DOS CARDS (ATORES) --- */
+/* ============================================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 2rem;
+}
+
+.actor-card {
+  background-color: #555;
+  border-radius: 12px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.actor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.actor-image {
+  width: 150px;
+  height: 150px;
+  background-color: #333;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #666;
+  margin-top: 1rem;
+}
+
+.actor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.actor-name {
+  font-weight: bold;
+  padding: 0.8rem 0.5rem;
+  margin-top: 0.8rem;
+  width: 100%;
+  text-align: center;
+  background-color: #3e3e3e;
+}
+
+
+
+/* ============================================= */
+/* --- ESTILOS DO MODAL (REUTILIZÁVEL) --- */
+/* ============================================= */
+.modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.7); }
+.modal-content { background-color: #333; margin: 10% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 500px; border-radius: 8px; position: relative; }
+.close-btn { color: #aaa; position: absolute; top: 10px; right: 25px; font-size: 28px; font-weight: bold; cursor: pointer; }
+.close-btn:hover, .close-btn:focus { color: white; }
+#language-list { max-height: 400px; overflow-y: auto; margin-top: 15px; }
+.language-item, .department-item, .gender-item { display: block; width: 100%; padding: 10px; margin-bottom: 5px; background-color: #555; border: none; color: white; text-align: left; cursor: pointer; border-radius: 4px; font-size: 1rem; }
+.language-item:hover, .department-item:hover, .gender-item:hover{ background-color: #777; }
+
+
+/* ============================================= */
+/* --- MEDIA QUERY (MOBILE) --- */
+/* ============================================= */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  aside, .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #555;
+    flex-direction: row; 
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.5rem;
+  }
+  aside a, .sidebar button {
+      flex: 1 1 120px; /* Botões flexíveis no mobile */
+      margin: 0.2rem;
+  }
+  main, .content {
+    padding: 1rem;
+  }
+  #main-content, #actor-grid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+  }
+}
