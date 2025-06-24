@@ -55,7 +55,7 @@ function setupFiltroPorId() {
         e.preventDefault();
         const id = prompt("Digite o ID da série:");
         if (id && !isNaN(id)) {
-            window.location.href = `serieDetailsPage.html?id=${id}`;
+            window.location.href = `details.html?id=${id}&type=tv`;
         }
     });
 }
@@ -71,7 +71,7 @@ async function setupFiltroPorNome() {
         if (!nome || nome.trim() === '') return;
         try {
             const serie = await fetchData(`${BASE_API_URL}/series/obterPorNome?nome=${encodeURIComponent(nome)}`);
-            window.location.href = `serieDetailsPage.html?id=${serie.id}`;
+            window.location.href = `details.html?id=${serie.id}&type=tv`;
         } catch (error) {
             alert(`Série "${nome}" não encontrada.`);
         }
